@@ -10,15 +10,13 @@ from recursivo import multiplicacao_matrizes_recursiva
 from dinamico import multiplicacao_matrizes_pd
 
 def medir_desempenho(funcao, p, eh_recursivo=False):
-    """Função auxiliar para medir tempo e memória de uma execução."""
+    # medir tempo e memória de uma execução.
     tracemalloc.start()
     inicio = time.perf_counter()
     
     if eh_recursivo:
-        # A versão recursiva precisa dos índices iniciais e finais
         funcao(p, 1, len(p) - 1)
     else:
-        # A versão dinâmica precisa apenas do array
         funcao(p)
         
     fim = time.perf_counter()
